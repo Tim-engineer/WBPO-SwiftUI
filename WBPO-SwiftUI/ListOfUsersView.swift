@@ -18,7 +18,7 @@ struct ListOfUsersView: View {
         NavigationStack {
             List(viewModel.users, id: \.id) { user in
                 NavigationLink(value: user) {
-                    UserRow(user: user, isFollowed: $isFollowed)
+                    ListCell(user: user)
                 }
             }
             .listStyle(.grouped)

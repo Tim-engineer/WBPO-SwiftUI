@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct UserRow: View {
+struct ListCell: View {
     
     let user: User
     
-    @Binding var isFollowed: Bool
+    @State private var followed = false
     
     var body: some View {
         HStack(alignment: .top) {
@@ -33,9 +33,9 @@ struct UserRow: View {
                         .fontWeight(.bold)
                     Spacer()
                     Button {
-                        isFollowed.toggle()
+                        followed.toggle()
                     } label: {
-                        Text(isFollowed ? "Unfollow" : "Follow")
+                        Text(followed ? "Unfollow" : "Follow")
                     }
                     .buttonStyle(.borderless)
                 }
