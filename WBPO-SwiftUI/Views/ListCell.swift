@@ -11,8 +11,6 @@ struct ListCell: View {
     
     let user: UserObject
     
-//    @State private var followed = false
-    
     var body: some View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: user.avatar)) { image in
