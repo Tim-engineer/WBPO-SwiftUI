@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum ReqResError: Error {
+enum GetUserError: Error {
     case invalidURL
     case invalidResponse
     case invalidData
+    case unableToComplete
 }

@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct UserRow: View {
+struct ListCell: View {
     
-    let user: User
+    let user: UserObject
     
-    @Binding var isFollowed: Bool
+//    @State private var followed = false
     
     var body: some View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: user.avatar)) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .clipShape(Circle())
             } placeholder: {
                 Circle()
@@ -33,10 +33,11 @@ struct UserRow: View {
                         .fontWeight(.bold)
                     Spacer()
                     Button {
-                        isFollowed.toggle()
+                        user.isFollowed.toggle()
                     } label: {
-                        Text(isFollowed ? "Unfollow" : "Follow")
+                        Text(user.isFollowed ? "Unfollow" : "Follow")
                     }
+                    .tint(user.isFollowed ? .red : .green)
                     .buttonStyle(.borderless)
                 }
                 VStack(alignment: .leading) {
@@ -50,4 +51,9 @@ struct UserRow: View {
             .padding(.leading)
         }
     }
+}
+
+#Preview {
+    ListCell(user: LocalUser.user)
+        .padding()
 }

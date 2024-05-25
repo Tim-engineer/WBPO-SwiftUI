@@ -9,22 +9,20 @@ import SwiftUI
 
 struct ListOfUsersView: View {
     
-    @StateObject var viewModel = UserViewModel()
-    
-    @State private var isFollowed = false
+    @State var viewModel = UserViewModel()
     
     var body: some View {
         
         NavigationStack {
             List(viewModel.users, id: \.id) { user in
                 NavigationLink(value: user) {
-                    UserRow(user: user, isFollowed: $isFollowed)
+                    ListCell(user: user)
                 }
             }
             .listStyle(.grouped)
             .navigationTitle("Users")
-            .navigationDestination(for: User.self) { user in
-                UserDetail(user: user, isFollowed: $isFollowed)
+            .navigationDestination(for: UserObject.self) { user in
+                UserDetail(user: user)
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in
@@ -32,6 +30,10 @@ struct ListOfUsersView: View {
         }
         .task {
             viewModel.getUsers()
+        }
+        
+        if viewModel.isLoading {
+            LoadingView()
         }
     }
 }
