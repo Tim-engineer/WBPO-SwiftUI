@@ -20,7 +20,7 @@ struct ListOfUsersView: View {
                 }
             }
             .listStyle(.grouped)
-            .navigationTitle("List of users 👨🏼‍🦳")
+            .navigationTitle("Users")
             .navigationDestination(for: UserObject.self) { user in
                 UserDetail(user: user)
             }
