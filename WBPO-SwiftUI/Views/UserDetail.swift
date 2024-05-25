@@ -9,11 +9,7 @@ import SwiftUI
 
 struct UserDetail: View {
     
-    let user: User
-    
-    @StateObject var viewModel = UserViewModel()
-    
-    @Binding var isFollowed: Bool
+    let user: UserObject
     
     var body: some View {
         VStack {
@@ -32,23 +28,35 @@ struct UserDetail: View {
                 Text("\(user.firstName) \(user.lastName)")
                     .font(.system(size: 40))
                     .fontWeight(.heavy)
-                Text(user.email)
-                    .foregroundStyle(.blue)
                 Button {
-                    isFollowed.toggle()
+                    user.isFollowed.toggle()
                 } label: {
-                    Text(isFollowed ? "Unfollow" : "Follow")
+                    Text(user.isFollowed ? "Unfollow" : "Follow")
+                }
+                .tint(user.isFollowed ? .red : .green)
+                .buttonStyle(.bordered)
+                .controlSize(.large)
+                Button {
+                    
+                } label: {
+                    Text(user.email)
+                        .foregroundStyle(.blue)
+                    .buttonStyle(.bordered)
                 }
                 .buttonStyle(.bordered)
                 .tint(.blue)
-                .padding(.top, 24)
             }
             Spacer()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .background(LinearGradient(colors: [.orange.opacity(0.2), .blue.opacity(0.2)], startPoint: .topLeading, endPoint: .bottomTrailing))
     }
 }
 
-//#Preview {
-//    UserDetail(user: LocalUser.user, isFollowing: )
-//}
+#Preview {
+    UserDetail(user: LocalUser.user)
+}
+
+struct LocalUser {
+    static let user = UserObject(id: 1, email: "example@example.com", firstName: "Tim", lastName: "Matlak", avatar: "brooks", isFollowed: false)
+}

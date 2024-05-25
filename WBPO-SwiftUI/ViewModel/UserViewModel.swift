@@ -7,48 +7,55 @@
 
 import SwiftUI
 
-@MainActor
-final class UserViewModel: ObservableObject {
+@Observable
+final class UserViewModel {
     
-    @Published var users: [User] = []
-    @Published var alertItem: AlertItem?
+    var users: [UserObject] = []
+    var alertItem: AlertItem?
+    var isLoading = false
     
-    func getUsers() async throws -> [User] {
-        let endpoint = "https://reqres.in/api/use"
+    func getUsers() {
+        isLoading = true
         
-        guard let url = URL(string: endpoint) else {
-            throw ReqResError.invalidURL
-        }
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw ReqResError.invalidResponse
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let userResponse = try decoder.decode(UserResponse.self, from: data)
-            return userResponse.data
-        } catch {
-            throw ReqResError.invalidData
+        Task {
+            defer {
+                isLoading = false
+            }
+            do {
+                let fetchedUsers = try await NetworkManager.shared.getUsers()
+                users = convertUsers(fetchedUsers)
+            } catch {
+                if let userError = error as? GetUserError {
+                    switch userError {
+                    case .invalidURL:
+                        alertItem = AlertContext.invalidURL
+                    case .invalidResponse:
+                        alertItem = AlertContext.invalidResponse
+                    case .invalidData:
+                        alertItem = AlertContext.invalidData
+                    case .unableToComplete:
+                        alertItem = AlertContext.unableToComplete
+                    }
+                } else {
+                    alertItem = AlertContext.invalidResponse
+                }
+            }
         }
     }
     
-    func getUsers() {
-        Task {
-            do {
-                users = try await getUsers()
-            } catch ReqResError.invalidURL {
-                print("Invalid URL")
-            } catch ReqResError.invalidResponse {
-                print("Invalid Response")
-            } catch ReqResError.invalidData {
-                print("Invalid Data")
-            } catch {
-                print("Unexpected Error")
-            }
+    func convertUsers(_ anArray: [User]) -> [UserObject] {
+        var newArray = [UserObject]()
+        anArray.forEach { user in
+            let newUserObject = UserObject(
+                id: user.id,
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                avatar: user.avatar,
+                isFollowed: false
+            )
+            newArray.append(newUserObject)
         }
+        return newArray
     }
 }

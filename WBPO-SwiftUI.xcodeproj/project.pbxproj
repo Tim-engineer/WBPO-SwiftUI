@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D116EB482C01E2C100DF3C06 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116EB472C01E2C100DF3C06 /* LoadingView.swift */; };
 		D1B917522BFDEB65000E9099 /* WBPO_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917512BFDEB65000E9099 /* WBPO_SwiftUIApp.swift */; };
 		D1B917542BFDEB65000E9099 /* ListOfUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917532BFDEB65000E9099 /* ListOfUsersView.swift */; };
 		D1B917562BFDEB66000E9099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B917552BFDEB66000E9099 /* Assets.xcassets */; };
@@ -14,12 +15,14 @@
 		D1B917622BFE073A000E9099 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917612BFE073A000E9099 /* ListCell.swift */; };
 		D1B917642BFFADC1000E9099 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917632BFFADC1000E9099 /* UserViewModel.swift */; };
 		D1B917662BFFB073000E9099 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917652BFFB073000E9099 /* User.swift */; };
-		D1B917682BFFB0C0000E9099 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917672BFFB0C0000E9099 /* Error.swift */; };
+		D1B917682BFFB0C0000E9099 /* GetUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917672BFFB0C0000E9099 /* GetUserError.swift */; };
 		D1B9176A2BFFB13A000E9099 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B917692BFFB13A000E9099 /* Alert.swift */; };
 		D1C121E42BFFE6E5008D71D9 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C121E32BFFE6E5008D71D9 /* UserDetail.swift */; };
+		D1E3E0C62C011C3A005E83ED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3E0C52C011C3A005E83ED /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D116EB472C01E2C100DF3C06 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D1B9174E2BFDEB65000E9099 /* WBPO-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WBPO-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B917512BFDEB65000E9099 /* WBPO_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBPO_SwiftUIApp.swift; sourceTree = "<group>"; };
 		D1B917532BFDEB65000E9099 /* ListOfUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersView.swift; sourceTree = "<group>"; };
@@ -28,9 +31,10 @@
 		D1B917612BFE073A000E9099 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		D1B917632BFFADC1000E9099 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		D1B917652BFFB073000E9099 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D1B917672BFFB0C0000E9099 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		D1B917672BFFB0C0000E9099 /* GetUserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserError.swift; sourceTree = "<group>"; };
 		D1B917692BFFB13A000E9099 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D1C121E32BFFE6E5008D71D9 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		D1E3E0C52C011C3A005E83ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 				D1DF86632C00C8A0008D1CA2 /* Model */,
 				D1DF86622C00C881008D1CA2 /* Views */,
 				D1DF86602C00C859008D1CA2 /* Error */,
+				D1E3E0C52C011C3A005E83ED /* NetworkManager.swift */,
+				D116EB472C01E2C100DF3C06 /* LoadingView.swift */,
 				D1B917552BFDEB66000E9099 /* Assets.xcassets */,
 				D1B917572BFDEB66000E9099 /* Preview Content */,
 			);
@@ -95,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B917692BFFB13A000E9099 /* Alert.swift */,
-				D1B917672BFFB0C0000E9099 /* Error.swift */,
+				D1B917672BFFB0C0000E9099 /* GetUserError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -187,11 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E3E0C62C011C3A005E83ED /* NetworkManager.swift in Sources */,
 				D1B917642BFFADC1000E9099 /* UserViewModel.swift in Sources */,
 				D1B917622BFE073A000E9099 /* ListCell.swift in Sources */,
+				D116EB482C01E2C100DF3C06 /* LoadingView.swift in Sources */,
 				D1B917542BFDEB65000E9099 /* ListOfUsersView.swift in Sources */,
 				D1B917662BFFB073000E9099 /* User.swift in Sources */,
-				D1B917682BFFB0C0000E9099 /* Error.swift in Sources */,
+				D1B917682BFFB0C0000E9099 /* GetUserError.swift in Sources */,
 				D1C121E42BFFE6E5008D71D9 /* UserDetail.swift in Sources */,
 				D1B917522BFDEB65000E9099 /* WBPO_SwiftUIApp.swift in Sources */,
 				D1B9176A2BFFB13A000E9099 /* Alert.swift in Sources */,

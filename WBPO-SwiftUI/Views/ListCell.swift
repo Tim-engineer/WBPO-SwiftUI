@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ListCell: View {
     
-    let user: User
+    let user: UserObject
     
-    @State private var followed = false
+//    @State private var followed = false
     
     var body: some View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: user.avatar)) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .clipShape(Circle())
             } placeholder: {
                 Circle()
@@ -33,10 +33,11 @@ struct ListCell: View {
                         .fontWeight(.bold)
                     Spacer()
                     Button {
-                        followed.toggle()
+                        user.isFollowed.toggle()
                     } label: {
-                        Text(followed ? "Unfollow" : "Follow")
+                        Text(user.isFollowed ? "Unfollow" : "Follow")
                     }
+                    .tint(user.isFollowed ? .red : .green)
                     .buttonStyle(.borderless)
                 }
                 VStack(alignment: .leading) {
@@ -50,4 +51,9 @@ struct ListCell: View {
             .padding(.leading)
         }
     }
+}
+
+#Preview {
+    ListCell(user: LocalUser.user)
+        .padding()
 }
