@@ -14,7 +14,7 @@ final class UserViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     
     func getUsers() async throws -> [User] {
-        let endpoint = "https://reqres.in/api/users?page=1&per_page=15"
+        let endpoint = "https://reqres.in/api/use"
         
         guard let url = URL(string: endpoint) else {
             throw ReqResError.invalidURL

@@ -11,4 +11,5 @@ enum ReqResError: Error {
     case invalidURL
     case invalidResponse
     case invalidData
+    case unableToComplete
 }
