@@ -75,14 +75,12 @@
 		D1B917502BFDEB65000E9099 /* WBPO-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				D1B917512BFDEB65000E9099 /* WBPO_SwiftUIApp.swift */,
-				D1B917532BFDEB65000E9099 /* ListOfUsersView.swift */,
+				D1E70C162C0217ED0067E784 /* App */,
 				D16A23122C00E2B300811D17 /* ViewModel */,
 				D1DF86632C00C8A0008D1CA2 /* Model */,
 				D1DF86622C00C881008D1CA2 /* Views */,
 				D1DF86602C00C859008D1CA2 /* Error */,
-				D1E3E0C52C011C3A005E83ED /* NetworkManager.swift */,
-				D116EB472C01E2C100DF3C06 /* LoadingView.swift */,
+				D1E70C152C0217B80067E784 /* Network */,
 				D1B917552BFDEB66000E9099 /* Assets.xcassets */,
 				D1B917572BFDEB66000E9099 /* Preview Content */,
 			);
@@ -109,6 +107,7 @@
 		D1DF86622C00C881008D1CA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D116EB472C01E2C100DF3C06 /* LoadingView.swift */,
 				D1B917612BFE073A000E9099 /* ListCell.swift */,
 				D1C121E32BFFE6E5008D71D9 /* UserDetail.swift */,
 			);
@@ -121,6 +120,23 @@
 				D1B917652BFFB073000E9099 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D1E70C152C0217B80067E784 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D1E3E0C52C011C3A005E83ED /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D1E70C162C0217ED0067E784 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D1B917512BFDEB65000E9099 /* WBPO_SwiftUIApp.swift */,
+				D1B917532BFDEB65000E9099 /* ListOfUsersView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
