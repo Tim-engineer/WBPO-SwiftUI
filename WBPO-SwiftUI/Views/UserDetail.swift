@@ -49,7 +49,7 @@ struct UserDetail: View {
             Spacer()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .background(LinearGradient(colors: [.orange.opacity(0.2), .blue.opacity(0.2)], startPoint: .topLeading, endPoint: .bottomTrailing))
+        .background(user.isFollowed ? LinearGradient(colors: [.orange.opacity(0.2), .blue.opacity(0.2)], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [.blue.opacity(0.2), .green.opacity(0.1)], startPoint: .topLeading, endPoint: .bottomTrailing))
     }
 }
 
